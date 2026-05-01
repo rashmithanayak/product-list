@@ -13,18 +13,18 @@ export const DropDown = ({
   );
   return (
     <div className="relative">
-      <span>Category: </span>
+      <label htmlFor="category">Category: </label>
       <select
-        className="border cursor-pointer rounded p-2 text-sm appearance-none w-27 capitalize text-slate-600 outline-none focus:outline-none"
+        className="border cursor-pointer rounded p-2 text-sm appearance-none w-45 capitalize text-slate-600 outline-none focus:outline-none"
         id="category"
         name="category"
         onChange={(e) => setSelectedCategory(e.target.value)}
       >
-        <option value="all">All</option>
+        <option value="All" key={1}>All</option>
         {categories.length > 0 &&
           categories.map((category: string, index: number) => {
             return (
-              <option className="" value={category} key={index}>
+              <option className="" value={category} key={index+2}>
                 {category}
               </option>
             );

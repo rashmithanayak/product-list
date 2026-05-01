@@ -1,3 +1,4 @@
+import Image from "next/image";
 export const ViewDetails = ({
   product,
 }: Readonly<{
@@ -11,10 +12,12 @@ export const ViewDetails = ({
   return (
     <div className="p-1 flex flex-col gap-3">
       <h1 className="text-lg font-bold">{product?.title}</h1>
-      <img
+      <Image
         src={product?.images[0]}
         alt={product?.title}
-        className="w-64 h-64 "
+        width={256}
+        height={256}
+        loading="lazy"
       />
       <h2 className="text-xl font-bold">{product?.brand}</h2>
       <p className="text-sm text-gray-600">{product?.description}</p>
@@ -24,7 +27,7 @@ export const ViewDetails = ({
         >
           {product?.rating} <span className="text-xs">★</span>
         </span>
-        <span className="text-lg font-bold">${product?.price.toFixed(2)}</span>
+        <span className="text-lg font-bold">${product?.price?.toFixed(2)}</span>
         <span
           className={`text-sm ${product?.discountPercentage > 0 ? "text-green-500" : "text-gray-600"}`}
         >
@@ -55,7 +58,6 @@ export const ViewDetails = ({
           {product.returnPolicy}
         </span>
       </div>
-
 
       <div>
         <h1 className="font-bold mb-2">Ratings and Reviews</h1>

@@ -1,13 +1,18 @@
 import ProductList from "./components/productList";
-import { getProducts } from "./services/api";
+import { getProductsPaginated } from "./services/api";
 
 
 export default async function Home() {
-    const products = await getProducts();
+  const data = await getProductsPaginated(0,12);
 
+  console.log("data ",data)
   return (
     <div className="">
-      <ProductList products={products.products} />
+      <ProductList 
+      initialProducts={data.products}
+      initialPage={1}
+      initialTotal={data.total}
+      />
     </div>
   );
 }
