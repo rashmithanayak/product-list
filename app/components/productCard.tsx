@@ -3,8 +3,10 @@ import Image from "next/image";
 
 export const ProductCard = ({
   product,
+  index,
 }: Readonly<{
   product: any;
+  index: number;
 }>) => {
   return (
     <div className="relative">
@@ -23,7 +25,7 @@ export const ProductCard = ({
             width={128}
             height={128}
             className="object-cover"
-            priority={true}
+            priority={index > 4 ? false : true}
           />
         </div>
 

@@ -110,8 +110,8 @@ export const ProductList = ({
                 No matching products found.
               </div>
             ) : (
-              filteredProducts.map((product: any) => (
-                <ProductCard product={product} key={product.id} />
+              filteredProducts.map((product: any,index: number) => (
+                <ProductCard product={product} key={product.id} index={index} />
               ))
             )}
           </div>
